@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export const GoBackBtn = ({ link }) => {
   return (
@@ -7,3 +8,7 @@ export const GoBackBtn = ({ link }) => {
     </div>
   );
 };
+
+GoBackBtn.propTypes = {
+    link: PropTypes.object.isRequired,
+    }

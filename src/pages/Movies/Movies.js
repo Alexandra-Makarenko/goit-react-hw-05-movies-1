@@ -35,10 +35,9 @@ const Movies = () => {
   filmName &&  fetchFilms();
 }, [fetchFilms,filmName]);
 
-
   return (
    <main>
-       <SearchBox onSubmit={updateQueryString}  value={filmName} onChange={updateQueryString}/>
+      <SearchBox onSubmit={updateQueryString}/>
       {!isLoading ?(!error ? <FilmList films={films} />:<div>{error}</div>)
         : <div>Is loading</div>}
       </main>
