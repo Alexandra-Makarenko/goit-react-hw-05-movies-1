@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,useLocation } from "react-router-dom";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 import  {lazy}  from "react";
 
@@ -10,6 +10,15 @@ const Reviews =  lazy(() => import("./Reviews/Reviews"));
 
 
 export const App = () => {
+  function NoMatch() {
+  let location = useLocation();
+
+  return (
+      <p>
+        No match for {location.pathname}
+      </p>    
+  );
+}
   return (
     <div>
       <Routes>
@@ -20,7 +29,8 @@ export const App = () => {
           <Route path="/movies/:movieId/cast" element={<Cast />} />
           <Route path="/movies/:movieId/reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<Home />}/>
+          <Route path="*" element={<NoMatch />}>
+            </Route>
         </Route>        
       </Routes>
     </div>
